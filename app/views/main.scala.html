@@ -16,7 +16,7 @@
             <div ng-controller="myAppController">
                 <label>Weight</label>
                 <input placeholder="(lbs)" ng-model="currentWeight">
-                <div ng-repeat="pokeman in pokemans | filter:pokemanRemove ">
+                <div ng-repeat="pokeman in pokemans | filter:pokemanRemove | orderBy:pokemanOrder ">
                     <span>{{ pokeman['name'] }}({{ pokeman['weight'] - currentWeight }})</span>
                 </div>
             </div>
