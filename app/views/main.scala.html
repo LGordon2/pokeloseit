@@ -1,3 +1,25 @@
-@(content: Html)
+<!DOCTYPE html>
 
-<h1>@content</h1>
+<html>
+    <head>
+        <title>Poké Lose It</title>
+        @*<link rel="stylesheet" media="screen" href="@routes.Assets.at("../../../public/stylesheets/main.css")">*@
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("lib/bootstrap/css/bootstrap.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("../../../public/images/favicon.png")">
+        @*<script src="@routes.Assets.at("../../../public/javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>*@
+        <script src="@routes.Assets.at("lib/angularjs/angular.js")"></script>
+        <script src="@routes.Assets.at("app.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container" ng-app="myApp">
+            <h1>Poké Lose It</h1>
+            <div ng-controller="myAppController">
+                <label>Weight</label>
+                <input placeholder="(lbs)" ng-model="currentWeight">
+                <div ng-repeat="pokeman in pokemans | filter:pokemanRemove ">
+                    <span>{{ pokeman['name'] }}({{ pokeman['weight'] - currentWeight }})</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
